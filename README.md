@@ -61,6 +61,38 @@ campus-hub/
    - The database will be automatically initialized on first run
    - You'll see: "✓ Database initialized successfully!"
 
+## 🌐 Deploy to Internet (Free!)
+
+Want to make your campus hub accessible online? Deploy for free!
+
+### Quick Deploy (5 minutes)
+
+**Recommended: Render.com**
+```bash
+# 1. Push your code (if not already)
+./deploy.sh
+
+# 2. Visit https://render.com
+# 3. Sign up with GitHub
+# 4. Connect campus-hub repository
+# 5. Click Deploy - Done!
+```
+
+Your app will be live at: `https://campus-hub-xxxx.onrender.com`
+
+### Deployment Options
+
+| Platform | Free? | Database | Setup Time | Best For |
+|----------|-------|----------|------------|----------|
+| **Render.com** | ✅ Yes | Resets on redeploy | 5 min | Quick demos |
+| **PythonAnywhere** | ✅ Yes | Persists ✅ | 15 min | Real campus use |
+| **Railway.app** | $5 credit/mo | Persists ✅ | 10 min | Best performance |
+
+**📖 Detailed Guides:**
+- [RENDER_DEPLOY.md](RENDER_DEPLOY.md) - Step-by-step Render deployment
+- [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) - All hosting options
+- [HOSTING_COMPARISON.md](HOSTING_COMPARISON.md) - Which to choose?
+
 ## Usage Guide
 
 ### Getting Started
