@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Campus Hub - Home{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Campus Hub</h1>
+            <p class="hero-subtitle">Manage Projects, Internships & Seminars</p>
+            <div class="hero-cards">
+                <div class="role-card">
+                    <div class="card-icon">👨‍🎓</div>
+                    <h2>Student</h2>
+                    <p>Submit projects, apply for internships, and register seminars</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('login_page', role='student') }}" class="btn btn-primary">Login</a>
+                        <a href="{{ url_for('register_page', role='student') }}" class="btn btn-outline">Register</a>
+                    </div>
+                </div>
+                <div class="role-card">
+                    <div class="card-icon">👨‍🏫</div>
+                    <h2>Faculty</h2>
+                    <p>Assist students, view submissions, and provide grades</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('login_page', role='faculty') }}" class="btn btn-primary">Login</a>
+                        <a href="{{ url_for('register_page', role='faculty') }}" class="btn btn-outline">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">📁</div>
+                <h3>Project Management</h3>
+                <p>Submit and track your academic projects with ease</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💼</div>
+                <h3>Internship Tracking</h3>
+                <p>Record and manage your internship experiences</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎤</div>
+                <h3>Seminar Registration</h3>
+                <p>Schedule and document your seminar presentations</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <h3>Grading System</h3>
+                <p>Faculty can evaluate and grade student submissions</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

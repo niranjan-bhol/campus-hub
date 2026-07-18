@@ -1,6 +1,8 @@
 # Campus Hub Portal 🎓
 
-A terminal-based web portal for managing student projects, internships, and seminars with faculty grading capabilities.
+A comprehensive web portal for managing student projects, internships, and seminars with faculty grading capabilities.
+
+**✨ Now with modern Web UI + Terminal CLI!**
 
 ## Features
 

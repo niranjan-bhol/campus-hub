@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>Welcome, {{ user.name }}! 👋</h1>
+        <p class="user-id">Student ID: <strong>{{ user.user_id }}</strong></p>
+    </div>
+
+    <div class="dashboard-tabs">
+        <button class="tab-btn active" data-tab="submit">Submit Work</button>
+        <button class="tab-btn" data-tab="view">My Submissions</button>
+    </div>
+
+    <!-- Submit Tab -->
+    <div class="tab-content active" id="submit-tab">
+        <div class="submission-cards">
+            <!-- Project Card -->
+            <div class="submission-card">
+                <div class="card-header">
+                    <div class="card-icon">📁</div>
+                    <h3>Submit Project</h3>
+                </div>
+                <form class="submission-form" id="projectForm">
+                    <div class="form-group">
+                        <label for="project_title">Project Title *</label>
+                        <input type="text" id="project_title" required placeholder="Enter project title">
+                    </div>
+                    <div class="form-group">
+                        <label for="project_desc">Description</label>
+                        <textarea id="project_desc" rows="3" placeholder="Project description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="project_start">Start Date</label>
+                            <input type="date" id="project_start">
+                        </div>
+                        <div class="form-group">
+                            <label for="project_end">End Date</label>
+                            <input type="date" id="project_end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="project_status">Status</label>
+                        <select id="project_status">
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                            <option>On Hold</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project_github">GitHub Link</label>
+                        <input type="url" id="project_github" placeholder="https://github.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label for="project_live">Live Project Link</label>
+                        <input type="url" id="project_live" placeholder="https://...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Project</button>
+                </form>
+            </div>
+
+            <!-- Internship Card -->
+            <div class="submission-card">
+                <div class="card-header">
+                    <div class="card-icon">💼</div>
+                    <h3>Apply for Internship</h3>
+                </div>
+                <form class="submission-form" id="internshipForm">
+                    <div class="form-group">
+                        <label for="intern_company">Company Name *</label>
+                        <input type="text" id="intern_company" required placeholder="Enter company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="intern_position">Position *</label>
+                        <input type="text" id="intern_position" required placeholder="e.g., Software Engineer Intern">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="intern_start">Start Date</label>
+                            <input type="date" id="intern_start">
+                        </div>
+                        <div class="form-group">
+                            <label for="intern_end">End Date</label>
+                            <input type="date" id="intern_end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="intern_status">Status</label>
+                        <select id="intern_status">
+                            <option>Applied</option>
+                            <option>Ongoing</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply for Internship</button>
+                </form>
+            </div>
+
+            <!-- Seminar Card -->
+            <div class="submission-card">
+                <div class="card-header">
+                    <div class="card-icon">🎤</div>
+                    <h3>Register Seminar</h3>
+                </div>
+                <form class="submission-form" id="seminarForm">
+                    <div class="form-group">
+                        <label for="seminar_topic">Seminar Topic *</label>
+                        <input type="text" id="seminar_topic" required placeholder="Enter seminar topic">
+                    </div>
+                    <div class="form-group">
+                        <label for="seminar_desc">Description</label>
+                        <textarea id="seminar_desc" rows="3" placeholder="Seminar description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seminar_date">Seminar Date</label>
+                        <input type="date" id="seminar_date">
+                    </div>
+                    <div class="form-group">
+                        <label for="seminar_venue">Venue</label>
+                        <input type="text" id="seminar_venue" placeholder="e.g., Room 101, Main Building">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register Seminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Tab -->
+    <div class="tab-content" id="view-tab">
+        <div class="submissions-view">
+            <div class="view-header">
+                <h2>My Submissions</h2>
+                <button class="btn btn-secondary" onclick="loadSubmissions()">🔄 Refresh</button>
+            </div>
+            
+            <div id="submissions-container">
+                <div class="loading">Loading submissions...</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/student.js') }}"></script>
+{% endblock %}
